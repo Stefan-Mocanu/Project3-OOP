@@ -16,21 +16,21 @@
 
 int main() {
     int n;
-    std::cout<<"How many metro trais: ";std::cin>>n;
+    std::cout<<"How many metro trais: ";std::cin>>n;std::cin.get();
     std::vector<MetroTrain> trains;
     for(int i = 0;i<n;i++){
         std::string name,producer;
         std::cin>>name>>producer;
-        trains.push_back(MetroTrain(name,producer));
+        trains.emplace_back(name,producer);
     }
-    std::cout<<"How many routes: ";std::cin>>n;
+    std::cout<<"How many routes: ";std::cin>>n;std::cin.get();
     std::vector<Route> routes;
     for(int i = 0;i<n;i++){
         std::string name;
         std::cin>>name;
         std::list<Station> stations;
         int m;
-        std::cout<<"How many stations: ";std::cin>>m;
+        std::cout<<"How many stations: ";std::cin>>m;std::cin.get();
         for(int j = 0;j<m;j++){
             std::string name1;
             std::cin>>name;
@@ -38,11 +38,11 @@ int main() {
         }
         routes.push_back(Route(name,stations));
     }
-    std::cout<<"How many transportation cards: ";std::cin>>n;
+    std::cout<<"How many transportation cards: ";std::cin>>n;std::cin.get();
     std::vector<std::shared_ptr<TransportCard>> cards;
     for(int i = 0; i<n; i++){
         int tip;
-        std::cin>>tip;
+        std::cin>>tip;std::cin.get();
         switch(tip){
             case 1:{
                 cards.push_back(Factory<SingleUseTicket>::getInstance()->create());
