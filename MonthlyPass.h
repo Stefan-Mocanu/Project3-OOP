@@ -6,11 +6,11 @@
 #define PR3_MONTHLYPASS_H
 #include "TransportCard.h"
 
-class MonthlyPass:public TransportCard {
+class MonthlyPass: public TransportCard {
     int year,month;
 public:
     MonthlyPass(int year, int month);
-
+    MonthlyPass();
     ~MonthlyPass() override;
 
     int getYear() const;

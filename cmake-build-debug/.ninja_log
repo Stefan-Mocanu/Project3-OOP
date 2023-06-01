@@ -1,0 +1,16 @@
+# ninja log v5
+126	415	7073340742123110	CMakeFiles/pr3.dir/CantUpdateAnymore.cpp.obj	ef7acd6f9889bde9
+147	380	7073340741759616	CMakeFiles/pr3.dir/clone.cpp.obj	ac4e6b0e650827c6
+73	390	7073340741841115	CMakeFiles/pr3.dir/NotAValidMonth.cpp.obj	ce2fb13a8cfe68f4
+53	1315	7073340751095109	CMakeFiles/pr3.dir/TenUsesTicket.cpp.obj	ea754d94b2a1ef14
+63	1510	7073340753054115	CMakeFiles/pr3.dir/TransportCard.cpp.obj	bfd420bafa1b4eb5
+34	1466	7073340752601177	CMakeFiles/pr3.dir/Station.cpp.obj	2e996d7c0a18ed86
+12	409	7072712149754295	CMakeFiles/pr3.dir/id_gen.cpp.obj	436f24c3bcfc3e3c
+91	1704	7073340755025304	CMakeFiles/pr3.dir/MonthlyPass.cpp.obj	8e3aa3ff5059f4cc
+43	1309	7073340751045149	CMakeFiles/pr3.dir/SingleUseTicket.cpp.obj	d4d37b355948dd09
+6	497	7073371494778016	build.ninja	ebe5e326e61e94d9
+5	1514	7073349265232665	CMakeFiles/pr3.dir/main.cpp.obj	def569f6b19476a3
+24	1469	7073340752632180	CMakeFiles/pr3.dir/MetroTrain.cpp.obj	bb4a9c003789659d
+15	1583	7073340753782097	CMakeFiles/pr3.dir/Route.cpp.obj	243f7873f1bdf296
+103	409	7073349415792217	pr3.exe	b7077f9c845250ed
+5	103	7073349412831652	CMakeFiles/pr3.dir/State.cpp.obj	c47067eaa9a2445a

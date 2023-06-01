@@ -2,6 +2,7 @@
 // Created by Stefan on 31-May-23.
 //
 
+#include <chrono>
 #include "MonthlyPass.h"
 
 MonthlyPass::MonthlyPass(int year, int month) : year(year), month(month) {}
@@ -13,15 +14,17 @@ MonthlyPass::~MonthlyPass() {
 void MonthlyPass::afis(std::ostream &os) const {
     os<<"MonthlyPass\n";
     TransportCard::afis(os);
-    os<<"Expire date:"<<month<<"/"<<year<<"\n";
+    os<<"Expire date: "<<month<<"/"<<year<<"\n";
 }
 
 void MonthlyPass::update() {
-    if(month==12){
+    std::chrono::time_point now{std::chrono::system_clock::now()};
+    std::chrono::year_month_day ymd{std::chrono::floor<std::chrono::days>(now)};
+    year= static_cast<int>(ymd.year());
+    month= static_cast<unsigned>(ymd.month())+1;
+    if(month==13){
         month =1;
         year++;
-    }else{
-        month++;
     }
     TransportCard::update();
 }
@@ -37,4 +40,12 @@ int MonthlyPass::getMonth() const {
 MonthlyPass::MonthlyPass(MonthlyPass &MP):TransportCard(MP) {
     year = MP.year;
     month = MP.month;
+}
+
+
+MonthlyPass::MonthlyPass() {
+    std::chrono::time_point now{std::chrono::system_clock::now()};
+    std::chrono::year_month_day ymd{std::chrono::floor<std::chrono::days>(now)};
+    year= static_cast<int>(ymd.year());
+    month= static_cast<unsigned>(ymd.month());
 }
