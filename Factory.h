@@ -22,6 +22,9 @@ public:
     std::shared_ptr<TransportCard> create(){
         return std::make_shared<T>();
     }
+    std::shared_ptr<TransportCard> create(int y,int m){
+        return std::make_shared<T>();
+    }
     static Factory<T> *getInstance(){
         if(inst==nullptr){
             inst = new Factory<T>();
@@ -30,4 +33,9 @@ public:
 };
 template<typename T>
 Factory<T>* Factory<T>::inst=nullptr;
+
+template<>
+std::shared_ptr<TransportCard> Factory<MonthlyPass>::create(int y,int m){
+    return std::make_shared<MonthlyPass>(y,m);
+}
 #endif //PR3_FACTORY_H

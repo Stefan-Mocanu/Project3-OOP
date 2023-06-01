@@ -16,15 +16,10 @@ TenUsesTicket::~TenUsesTicket() {
 }
 
 void TenUsesTicket::update() {
-    if(usages!=10){usages++;
-    TransportCard::update();}
-    else{
-        try{
-            throw CantUpdateAnymore();
-        }catch (CantUpdateAnymore &e){
-            std::cout<<e.what();
-        }
+    if(usages!=10){
+        usages++;
     }
+
 }
 
 void TenUsesTicket::afis(std::ostream &os) const {

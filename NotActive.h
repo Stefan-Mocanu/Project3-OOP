@@ -7,6 +7,8 @@
 #include"State.h"
 #include"TransportCard.h"
 #include "MonthlyPass.h"
+#include "CantUpdateAnymore.h"
+#include"iostream"
 class NotActive:public State{
 public:
     NotActive()=default;
@@ -18,6 +20,11 @@ public:
 
 template<typename T>
 void NotActive::update(T& ob) {
+    try{
+        throw CantUpdateAnymore();
+    }catch (CantUpdateAnymore &e){
+        std::cout<<e.what();
+    }
 }
 template<>
 void NotActive::update(MonthlyPass &ob){

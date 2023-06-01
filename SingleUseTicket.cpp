@@ -13,12 +13,11 @@ SingleUseTicket::~SingleUseTicket() {
 void SingleUseTicket::afis(std::ostream &os) const {
     os<<"SingleUseTicket";
     TransportCard::afis(os);
-    os<<"used "<<used<<"\n";
+    os<<"used: "<<used<<"\n";
 }
 
 void SingleUseTicket::update() {
     used = true;
-    TransportCard::update();
 }
 
 SingleUseTicket::SingleUseTicket(SingleUseTicket &SUT):TransportCard(SUT) {

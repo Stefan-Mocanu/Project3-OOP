@@ -16,7 +16,13 @@ void MonthlyPass::afis(std::ostream &os) const {
     TransportCard::afis(os);
     os<<"Expire date: "<<month<<"/"<<year<<"\n";
 }
-
+bool MonthlyPass::check(){
+    std::chrono::time_point now{std::chrono::system_clock::now()};
+    std::chrono::year_month_day ymd{std::chrono::floor<std::chrono::days>(now)};
+    return (year> static_cast<int>(ymd.year()) || (
+            year == static_cast<int>(ymd.year()) &&
+            month>static_cast<unsigned>(ymd.month())))
+}
 void MonthlyPass::update() {
     std::chrono::time_point now{std::chrono::system_clock::now()};
     std::chrono::year_month_day ymd{std::chrono::floor<std::chrono::days>(now)};

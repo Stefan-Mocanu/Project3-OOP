@@ -11,7 +11,7 @@ class MetroTrain {
     std::string id,name,producator;
 public:
     MetroTrain(const std::string &name, const std::string &producator);
-
+    MetroTrain();
     friend std::ostream &operator<<(std::ostream &os, const MetroTrain &train);
     MetroTrain(MetroTrain& MT);
     const std::string &getId() const;
@@ -28,7 +28,6 @@ public:
 
     virtual ~MetroTrain();
 
-    MetroTrain();
 };
 
 

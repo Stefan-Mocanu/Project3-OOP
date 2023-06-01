@@ -3,10 +3,13 @@
 //
 
 #include "TransportCard.h"
+#include"NotActive.h"
+#include "Active.h"
 
-
-TransportCard::TransportCard() {id = id_gen<TransportCard>::get_id();
-    state = new Active();
+TransportCard::TransportCard() {
+    id = id_gen<TransportCard>::get_id();
+    state = std::make_shared<Active>();
+    st = true;
 }
 
 const std::string &TransportCard::getId() const {
@@ -19,7 +22,6 @@ std::ostream &operator<<(std::ostream &os, const TransportCard &card) {
 }
 
 TransportCard::~TransportCard() {
-    delete state;
 }
 
 void TransportCard::afis(std::ostream &os)const {
@@ -28,18 +30,24 @@ void TransportCard::afis(std::ostream &os)const {
 
 TransportCard::TransportCard(TransportCard &card) {
     id = card.id;
-}
-
-void TransportCard::update() {
-    
+    state = card.state;
+    st = card.st;
 }
 
 void TransportCard::activate() {
-    delete state;
-    state = new Active();
+    state = std::make_shared<Active>();
+    st= true;
 }
 
 void TransportCard::deActivate() {
-    delete state;
-    state = new NotActive();
+    state = std::make_shared<NotActive>();
+    st=false;
+}
+
+std::shared_ptr<State> TransportCard::getState() const {
+    return state;
+}
+
+bool TransportCard::isSt() const {
+    return st;
 }

@@ -20,6 +20,8 @@ public:
     void afis(std::ostream &os) const override;
     MonthlyPass(MonthlyPass &MP);
     void update() override;
+
+    bool check();
 };
 
 

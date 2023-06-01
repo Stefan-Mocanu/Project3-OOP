@@ -5,6 +5,8 @@
 #ifndef PR3_ACTIVE_H
 #define PR3_ACTIVE_H
 #include "State.h"
+#include "SingleUseTicket.h"
+#include "TenUsesTicket.h"
 class Active:public State{
 public:
     Active()=default;
@@ -32,6 +34,6 @@ void Active::update(MonthlyPass &ob){
     std::chrono::year_month_day ymd{std::chrono::floor<std::chrono::days>(now)};
     if(ob.getYear()< static_cast<int>(ymd.year()) || (
             ob.getYear() == static_cast<int>(ymd.year()) &&
-            ob.getMonth() < static_cast<unsigned>(ymd.month())))ob.deActivate();
+            ob.getMonth()<static_cast<unsigned>(ymd.month()))){ob.update();ob.deActivate();}
 }
 #endif //PR3_ACTIVE_H

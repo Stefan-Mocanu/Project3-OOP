@@ -8,13 +8,17 @@
 #include<string>
 #include <ostream>
 #include"State.h"
-#include"NotActive.h"
-#include "Active.h"
+#include<memory>
 class TransportCard {
     std::string id;
-    State* state;
+    std::shared_ptr<State> state;
+    bool st;
 public:
     virtual void update()=0;
+
+    std::shared_ptr<State> getState() const;
+
+    bool isSt() const;
 
     TransportCard();
     TransportCard(TransportCard & card);
